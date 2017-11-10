@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> NASA - Gaming Content </title>
+    <link rel="stylesheet" type="text/css" href="css/CA.css" media="screen" />
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			$("#create").click(function(){
+				password = $("#password").val();
+				passwordc = $("#passwordC").val();
+				if(password==passwordc)
+				{
+					var dat={ }
+					$.ajax({
+						url: "/cgi-bin/check_insert_user.py",
+						data: {username: $("#username").val(), password:$("#password").val(), fName: $("#fName").val(), lName: $("#lName").val(), email: $("#email").val(), dob: $("#dob").val(), gender: $("input[name='gender']:checked").val(), game: $("#game").val()},
+						datatype:"application/json",
+						type:"post",
+						success: function(response){
+						if(response.result)
+						{
+							alert("User Already exists")
+						}
+						else
+						{
+							window.location.href = "/homepage.html";
+						}
+						},
+						error: function(response){
+							alert("unknown error");
+						}
+					});
+				}
+				else
+				{
+					alert("passwords do not match");
+				}
+			});
+		});
+	</script>
+  </head>
+  <body>
+  		<div class="form">
+  		<h1>Create an Account</h1>
+
+        Username: <input type="text" id="username" name="username" required/><BR><BR>
+        Password: <input type="password" id="password" name="password" required/><BR><BR>
+        Confirm Password: <input type="password" id="passwordC" name="passwordC" required/><BR><BR>
+        First Name: <input type="text" id="fName" name="fName" required/><BR><BR>
+        Last Name: <input type="text" id="lName" name="lName" required/><BR><BR>
+        E-Mail: <input type="text" id="email" name="email" required/><BR><BR>
+        Date of Birth: <input type="date" id="dob" name="dob" required/><BR><BR>
+        Gender: <input type="radio" name="gender" value="male"/>Male
+        <input type="radio" name="gender" value="female"/>Female
+        <input type="radio" name="gender" value="other" required/>Other<BR><BR>
+        Favorite Game: <input type="text" id="game" name="game"/><BR><BR>
+
+      <button type="button" id="create">Create Account</button><BR><BR>
+
+  		</div>
+  </body>
+</html>
