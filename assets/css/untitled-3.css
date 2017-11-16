@@ -1,0 +1,48 @@
+body{
+  background-image:url('../../assets/img/index-bg.jpg');
+  background-repeat:no-repeat;
+}
+
+img.agent47{
+  display:block;
+  width:25%;
+  padding:10px;
+}
+
+img.img-responsive{
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  padding-bottom:48px;
+  padding-top:40px;
+}
+
+h1{
+  font-family:'Raleway', sans-serif;
+  font-size:x-large;
+}
+
+a.navbar-brand.navbar-link{
+  font-family:'Bungee Inline';
+}
+
+form{
+  background:rgba(125, 45, 45, 0.68);
+  width:700px;
+  color:white;
+  padding:40px;
+  margin-top:40px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-bottom:40px;
+  padding-top:30px;
+  box-shadow:10px 10px 5px rgba(6, 1, 1, 0.43);
+}
+
+.form control{
+  .form-control{        border-radius:0px;
+  background-color:rgba(23, 3, 3, 0.48);
+  color:white;
+  border-radius:1px solid #291212      };
+}
+
